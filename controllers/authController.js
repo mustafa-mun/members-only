@@ -39,7 +39,7 @@ passport.deserializeUser(async function (id, done) {
 });
 
 exports.get_sign_up = (req, res, next) => {
-  res.render("signUp", { title: "Sign Up" });
+  res.render("signup", { title: "Sign Up" });
 };
 exports.post_sign_up = [
   // Validate fields
@@ -57,7 +57,7 @@ exports.post_sign_up = [
 
     if (!errors.isEmpty()) {
       // Render signup form again
-      res.render("signUp", { title: "Sign Up", errors: errors.array() });
+      res.render("signup", { title: "Sign Up", errors: errors.array() });
     } else {
       // Form data is valid
       try {
