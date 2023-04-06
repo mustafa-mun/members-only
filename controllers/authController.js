@@ -61,10 +61,12 @@ exports.post_sign_up = [
     } else {
       // Form data is valid
       try {
+        /// Create new user with form data
         const user = new User({
           username: req.body.username,
           password: req.body.password,
         });
+        // Hash the password and save user on database
         bcrypt.hash(user.password, 10, async (err, hashedPassword) => {
           if (err) return next(err);
           const hashedUser = new User({
