@@ -10,4 +10,7 @@ block content
   if errors
     ul
       each error in errors 
-        li!= error.msg
+        if(error.msg)
+          li!= error.msg 
+        else 
+          li!= error
