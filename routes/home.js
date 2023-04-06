@@ -6,7 +6,9 @@ const messageContoller = require("../controllers/messageController");
 const authController = require("../controllers/authController");
 
 /* HOME PAGE */
-router.get("/", userContoller.index);
+router.get("/", (req, res) => {
+  res.render("index", { title: "Members Only", user: req.user });
+});
 
 // SIGN UP REQUESTS
 router.get("/sign-up", authController.get_sign_up);
