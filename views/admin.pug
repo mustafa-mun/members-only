@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  h1= title 
+  form(action='/home/become-admin', method='post')
+    label(for='password') Password:
+    input#password(type='password', name='password', required)
+    button(type='submit') Submit
+
+  if errors
+    ul
+      each error in errors 
+        li!= error.msg
