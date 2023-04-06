@@ -1,6 +1,7 @@
 extends layout 
 
 block content 
+  h1= title
   form(action='/home/sign-up', method='post')
     label(for='username') Username:
     input#username(type='text', name='username', required)
