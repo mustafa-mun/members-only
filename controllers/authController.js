@@ -74,7 +74,7 @@ exports.post_sign_up = [
             password: hashedPassword,
           });
           await hashedUser.save();
-          res.redirect("/");
+          res.redirect("/home/log-in");
         });
       } catch (error) {
         return next(error);
@@ -93,7 +93,10 @@ exports.post_login = (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      res.render("login", { title: "Log In", error: "Username or Password is wrong!" });
+      res.render("login", {
+        title: "Log In",
+        error: "Username or Password is wrong!",
+      });
       return;
     }
     req.logIn(user, (err) => {
