@@ -1,6 +1,7 @@
 extends layout 
 
 block content 
+  h1= title
   form(action='/home/log-in', method='post')
     label(for='username') Username:
     input#username(type='text', name='username', required)
@@ -8,7 +9,7 @@ block content
     label(for='password') Password:
     input#password(type='password', name='password', required)
 
-    button(type='submit') Sign Up
+    button(type='submit') Login
   if error
       ul
         li!= error 
