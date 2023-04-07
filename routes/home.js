@@ -28,7 +28,7 @@ router.get("/become-admin", userContoller.get_become_admin);
 router.post("/become-admin", userContoller.post_become_admin);
 
 // USER MESSAGE REQUESTS
-router.get("/create_message", userContoller.get_create_message);
-router.post("/create_message", userContoller.post_create_message);
+router.get("/create-message", userContoller.get_create_message);
+router.post("/create-message", userContoller.post_create_message);
 
 module.exports = router;
