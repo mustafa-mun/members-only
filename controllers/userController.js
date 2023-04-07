@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const Message = require("../models/message");
+const Message = require("../models/messages");
 const { body, validationResult } = require("express-validator");
 
 exports.get_become_member = (req, res) => {
