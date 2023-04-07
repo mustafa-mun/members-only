@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Message = require("../models/messages");
+const crudFunction = require("../controllers/crudFunctions");
 const { body, validationResult } = require("express-validator");
 
 exports.get_become_member = (req, res) => {
@@ -148,6 +149,47 @@ exports.post_create_message = [
       res.redirect("/home");
     } catch (error) {
       return next(error);
+    }
+  },
+];
+
+exports.delete_message_get = (req, res, next) => {
+  // Check if user is logged in
+  if (req.user) {
+    // User is logged in, check if user is an admin
+    if (req.user.is_admin) {
+      // User is admin, render the delete post page
+      res.render("delete", { title: "Delete Post", user: req.user });
+    } else {
+      // User is not an admin, redirect to become admin page
+      res.redirect("/home/become-admin");
+    }
+  } else {
+    // User is not logged in, redirect to login page
+    res.redirect("/home/log-in");
+  }
+};
+
+exports.delete_message_post = [
+  body("confirm-action", "To confirm your action, type DELETE").equals(
+    "DELETE"
+  ),
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      // There are errors, render the page again with errors
+      res.render("delete", {
+        title: "Delete  Post",
+        user: req.user,
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      // Action confirmed, delete the post and redirect the user
+      crudFunction
+        .deleteDocument(Message, req.params.id, next)
+        .then(() => res.redirect("/home"));
     }
   },
 ];
