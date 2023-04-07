@@ -96,3 +96,34 @@ ul {
   color: #f25c05;
   text-decoration: none;
 }
+
+.redirect {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+}
+
+.message-body {
+  display: block;
+  width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.message-div {
+  padding: 32px;
+  border: solid black 1px;
+  border-radius: 16px;
+  max-width: 500px;
+}
+
+.delete {
+  font-size: 21px;
+  text-decoration: none;
+}
