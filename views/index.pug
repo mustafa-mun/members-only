@@ -1,7 +1,14 @@
 extends layout
 
 block content
-  if user 
-    p Welcome back #{user.username} 
+  if user
+    p Welcome back #{user.username}
+    div.grid 
+      each message in messages 
+        div.message-div
+          p= message.author.username
+          p= message.title
+          p= message.message_body 
+          p= message.formatted_timestamp
   else
     p Welcome to #{title}
