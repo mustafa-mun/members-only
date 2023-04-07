@@ -8,14 +8,14 @@ html
     header
       nav 
         if user
-          a.nav(href="/home") Home 
-          a.nav(href="/home/become-member") Member
-          a.nav(href="/home/become-admin") Admin
-          a.nav(href="/home/create_message") Create message
-          a.nav(href="/home/log-out") Log Out
-        else
-          a.nav(href="/home") Home 
-          a.nav(href="/home/sign-up") Sign Up
-          a.nav(href="/home/log-in") Log In
+            a.nav(href="/home") Home 
+            a.nav-button(href="/home/become-member") Member
+            a.nav-button(href="/home/become-admin") Admin
+            a.nav(href="/home/create_message") Create message
+            a.nav-logout(href="/home/log-out") Log Out
+        else 
+            a.nav(href="/home") Home 
+            a.nav-button(href="/home/sign-up") Sign Up
+            a.nav-button(href="/home/log-in") Log In
 
     block content
