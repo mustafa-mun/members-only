@@ -47,7 +47,7 @@ exports.post_sign_up = [
     .isLength({ min: 4, max: 16 })
     .escape(),
   body("password", "Password needs to be at least 5 characters!").isLength({
-    min: 4,
+    min: 5,
   }),
   body("confirm-password", "Passwords do not match!").custom(
     (value, { req }) => value === req.body.password
