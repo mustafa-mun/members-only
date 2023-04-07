@@ -2,13 +2,33 @@ extends layout
 
 block content
   if user
-    p Welcome back #{user.username}
+    if user.is_member
+      p Welcome back #{user.username}
+      div.grid 
+        each message in messages 
+          div.message-div
+            p =====================================
+            p Author: #{message.author.username}
+            p Title: #{message.title}
+            p Message: #{message.message_body }
+            p Timestamp: #{message.formatted_timestamp}
+            p =====================================
+    else 
+      div.grid 
+      each message in messages 
+        div.message-div
+          p =====================================
+          p Title: #{message.title}
+          p Message: #{message.message_body} 
+          a.become-member-nav(href="/home/become-member") Become a member to see date and authors username
+          p =====================================
+  else
+    p Welcome to #{title}
     div.grid 
       each message in messages 
         div.message-div
-          p= message.author.username
-          p= message.title
-          p= message.message_body 
-          p= message.formatted_timestamp
-  else
-    p Welcome to #{title}
+          p =====================================
+          p Title: #{message.title}
+          p Message: #{message.message_body} 
+          a.become-member-nav(href="/home/become-member") Become a member to see date and authors username
+          p =====================================
