@@ -7,28 +7,42 @@ block content
       div.grid 
         each message in messages 
           div.message-div
-            p =====================================
-            p Author: #{message.author.username}
-            p Title: #{message.title}
-            p Message: #{message.message_body }
-            p Timestamp: #{message.formatted_timestamp}
-            p =====================================
+            p
+              span.become-member-nav Author: 
+              | #{message.author.username}
+            p 
+              span.become-member-nav Title: 
+              | #{message.title}
+            p
+              span.become-member-nav Message: 
+              span.message-body #{message.message_body }
+            p 
+              span.become-member-nav Timestamp: 
+              | #{message.formatted_timestamp}
+            if user.is_admin
+              a.delete(href=`${message.url}/delete`) Delete
     else 
       div.grid 
       each message in messages 
         div.message-div
-          p =====================================
-          p Title: #{message.title}
-          p Message: #{message.message_body} 
+          p 
+            span.become-member-nav Title:
+            | #{message.title}
+          p
+            span.become-member-nav Message: 
+            span.message-body #{message.message_body }
           a.become-member-nav(href="/home/become-member") Become a member to see date and authors username
-          p =====================================
+      
   else
     p Welcome to #{title}
     div.grid 
       each message in messages 
         div.message-div
-          p =====================================
-          p Title: #{message.title}
-          p Message: #{message.message_body} 
+          p 
+            span.become-member-nav Title:
+            | #{message.title}
+          p
+            span.become-member-nav Message: 
+            span.message-body #{message.message_body }
           a.become-member-nav(href="/home/become-member") Become a member to see date and authors username
-          p =====================================
+      
