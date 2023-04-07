@@ -73,8 +73,19 @@ exports.post_sign_up = [
             username: req.body.username,
             password: hashedPassword,
           });
-          await hashedUser.save();
-          res.redirect("/home/log-in");
+          try {
+            await hashedUser.save();
+            res.redirect("/home/log-in");
+          } catch (error) {
+            // check if the error is a duplicate key error
+            if (error.code === 11000 && error.keyValue.username) {
+              // redirect to the signup page with an error message
+              const errors = ["Username already exists!"];
+              res.render("signup", { title: "Sign Up", errors });
+            } else {
+              return next(error);
+            }
+          }
         });
       } catch (error) {
         return next(error);
