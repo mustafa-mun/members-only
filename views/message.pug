@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  h1= title 
+  form(action='/home/create-message', method='post')
+    label(for='title') Title:
+    input#title(type='title', name='title', required)
+    label(for='message_body') Message:
+    input#message-body(type='message_body', name='message_body', required)
+    button(type='submit') Create
+
+  if errors
+    ul
+      each error in errors 
+        li!= error.msg
