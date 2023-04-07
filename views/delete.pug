@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  h1= title 
+  h2 Are you sure you want to delete this post? 
+  form(action='', method='post')
+    label(for='confirm-action') Confirm action:
+    input(type='confirm-action', name='confirm-action', required placeholder="Type: DELETE")
+    button(type='submit') Delete
+
+  if errors
+    ul
+      each error in errors 
+        li!= error.msg
