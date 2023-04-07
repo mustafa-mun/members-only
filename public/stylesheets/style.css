@@ -33,7 +33,14 @@ label {
 }
 
 input {
+  padding-left: 10px;
+  padding-bottom: 6px;
   width: 250px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 button {
@@ -42,8 +49,15 @@ button {
   color: #f25c05;
   border: solid #f25c05 1px;
   border-radius: 18px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   cursor: pointer;
+  transition: all 0.15s;
+}
+
+button:hover {
+  border: solid #fff2dc 1px;
+  color: #fff2dc;
+  background-color: #f25c05;
 }
 
 header {
@@ -85,10 +99,17 @@ ul {
   border: solid #f25c05 1px;
   color: #f25c05;
   border-radius: 16px;
+  transition: all 0.15s;
+}
+
+.nav-logout:hover {
+  border: solid #fff2dc 1px;
+  color: #fff2dc;
+  background-color: #f25c05;
 }
 
 #message-body {
-  height: 100px;
+  padding-bottom: 75px;
 }
 
 .become-member-nav {
