@@ -83,6 +83,16 @@ ul {
   font-size: 20px;
   text-decoration: none;
   border: solid #f25c05 1px;
-  color:  #f25c05;
+  color: #f25c05;
   border-radius: 16px;
+}
+
+#message-body {
+  height: 100px;
+}
+
+.become-member-nav {
+  font-size: 21px;
+  color: #f25c05;
+  text-decoration: none;
 }
