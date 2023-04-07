@@ -52,4 +52,8 @@ router.post("/become-admin", userContoller.post_become_admin);
 router.get("/create-message", userContoller.get_create_message);
 router.post("/create-message", userContoller.post_create_message);
 
+// ADMIN REQUESTS
+router.get("/message/:id/delete", userContoller.delete_message_get);
+router.post("/message/:id/delete", userContoller.delete_message_post);
+
 module.exports = router;
