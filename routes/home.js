@@ -49,11 +49,11 @@ router.get("/become-admin", userContoller.get_become_admin);
 router.post("/become-admin", userContoller.post_become_admin);
 
 // USER MESSAGE REQUESTS
-router.get("/create-message", userContoller.get_create_message);
-router.post("/create-message", userContoller.post_create_message);
+router.get("/create-message", messageContoller.get_create_message);
+router.post("/create-message", messageContoller.post_create_message);
 
 // ADMIN REQUESTS
-router.get("/message/:id/delete", userContoller.delete_message_get);
-router.post("/message/:id/delete", userContoller.delete_message_post);
+router.get("/message/:id/delete", messageContoller.delete_message_get);
+router.post("/message/:id/delete", messageContoller.delete_message_post);
 
 module.exports = router;
