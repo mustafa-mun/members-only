@@ -25,6 +25,8 @@ This project is the part of [nodejs](https://members-only-production-de29.up.rai
 - `Password security:` Passwords are secured using bcryptjs.
 - `Membership management:` Users can gain membership by entering a secret code.
 - `What is the membership for?:` Only members can see the author and timestamp of the messages
+- `Adminship management:`Users can gain adminship by entering a secret code.
+- `What is the admin for?:` Only admins can delete messages.
 - `Schema validation:` Mongoose is used for schema validation to ensure data consistency and accuracy.
 
   
