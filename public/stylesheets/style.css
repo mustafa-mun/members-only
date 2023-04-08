@@ -109,7 +109,8 @@ ul {
 }
 
 #message-body {
-  padding-bottom: 75px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .become-member-nav {
